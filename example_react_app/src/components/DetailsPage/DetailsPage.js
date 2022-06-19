@@ -6,6 +6,7 @@ import Popup from "reactjs-popup";
 import "./DetailsPage.css"
 import * as Icon from 'react-bootstrap-icons';
 import {useNavigate} from "react-router-dom"
+import StatePlot from "../Chart/StatePlot";
 
 const DetailsPage = ()=>{
     const {id} = useParams()
@@ -15,6 +16,7 @@ const DetailsPage = ()=>{
     const [name_, setname_] = useState('');
     const [sum_, setsum_] = useState('');
     const [account, setAccount] = useState('');
+    const [statePlotData, setStatePlotData] = useState('');
 
     useEffect(() => {
         Repository
@@ -29,6 +31,14 @@ const DetailsPage = ()=>{
             .getAccount(id)
             .then(json => {
                 setAccount(json)
+            })
+    }, []);
+
+    useEffect(() => {
+        Repository
+            .getStatePlotData(id)
+            .then(json => {
+                setStatePlotData(json)
             })
     }, []);
 
@@ -52,6 +62,9 @@ const DetailsPage = ()=>{
         <>
             <button className="home" onClick={goHome}><Icon.House size="30" color="white"></Icon.House></button>
             <h1>Operations for account: {account.Name}</h1>
+
+            <StatePlot X = {statePlotData.X} Y = {statePlotData.Y}></StatePlot>
+
             <div className="div">
                 <label className="columnHeader">NAME</label>
                 <label className="columnHeader">SUM</label>

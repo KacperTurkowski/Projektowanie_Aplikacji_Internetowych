@@ -8,6 +8,7 @@ const dotenv = require('dotenv').config();
 
 var accountsRouter = require('./API/V1/Routes/accounts');
 var operationsRouter = require('./API/V1/Routes/operations');
+var chartRouter = require('./API/V1/Routes/chart')
 
 var app = express();
 
@@ -20,5 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/accounts',accountsRouter);
 app.use('/operations',operationsRouter);
+app.use('/chart',chartRouter);
 
 module.exports = app;

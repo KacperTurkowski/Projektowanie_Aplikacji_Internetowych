@@ -18,7 +18,6 @@ const changeStateService = async (id, difference)=>{
     return accountsDal.changeState(parseFloat(temp[0].State)+parseFloat(difference), id);
 }
 
-
 module.exports = {
     getAccountService,
     changeStateService,

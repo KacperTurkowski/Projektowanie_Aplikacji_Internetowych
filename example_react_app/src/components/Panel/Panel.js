@@ -5,17 +5,27 @@ import AccountButton from "../AccountButton/AccountButton";
 import 'reactjs-popup/dist/index.css'
 import Popup from "reactjs-popup";
 import * as Icon from "react-bootstrap-icons";
+import Chart from "../Chart/Chart";
 const Panel = ()=>{
 
     const [accounts, setAccounts] = useState([]);
     const [name_, setname_] = useState('');
     const [state_, setstate_] = useState('');
+    const [chartData, setChartData] = useState('');
 
     useEffect(() => {
         Repository
             .getAccounts()
             .then(json => {
                 setAccounts(json)
+            })
+    }, []);
+
+    useEffect(() => {
+        Repository
+            .getChartData()
+            .then(json => {
+                setChartData(json)
             })
     }, []);
 
@@ -27,6 +37,7 @@ const Panel = ()=>{
     return (
         <>
             <h1>Account manager</h1>
+            <Chart X={chartData.X} Y={chartData.Y}></Chart>
             {
                 accounts.map((account, index)=>(
                     <div key={index}>

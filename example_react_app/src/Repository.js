@@ -5,6 +5,7 @@ const getAccounts = async ()=>{
     });
     return response.json();
 }
+
 const addAccount = async (name, state)=>{
     const url = "http://localhost:3000/accounts";
     let temp = {}
@@ -88,6 +89,22 @@ const getAccount = async (id)=>{
     return response.json();
 }
 
+const getChartData = async ()=>{
+    const url = "http://localhost:3000/chart";
+    const response = await fetch(url,{
+        headers: {'Content-Type' : 'application/json'}
+    });
+    return response.json();
+}
+
+const getStatePlotData = async (id)=>{
+    const url = "http://localhost:3000/chart/"+id;
+    const response = await fetch(url,{
+        headers: {'Content-Type' : 'application/json'}
+    });
+    return response.json();
+}
+
 module.exports = {
     getAccounts,
     addAccount,
@@ -97,5 +114,7 @@ module.exports = {
     deleteOperation,
     addOperation,
     getOperationsForAccount,
-    getAccount
+    getAccount,
+    getChartData,
+    getStatePlotData
 }
