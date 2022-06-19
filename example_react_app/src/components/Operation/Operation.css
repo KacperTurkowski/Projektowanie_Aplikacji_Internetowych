@@ -1,0 +1,23 @@
+.div{
+    border: black;
+    background-color: Grey;
+    font-size: x-large;
+    height: 30px;
+    display: flex;
+    border-radius: 15px;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    justify-content: space-between;
+}
+.column{
+    width: 31%;
+    color: white;
+}
+.trash {
+    width: 7%;
+    color: white;
+    border: black;
+    background-color: Grey;
+    border-radius: 15px;
+}

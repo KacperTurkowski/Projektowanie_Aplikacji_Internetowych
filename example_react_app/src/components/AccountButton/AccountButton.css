@@ -1,0 +1,19 @@
+.accountButton{
+    border: black;
+    background-color: Grey;
+    font-size: x-large;
+    height: 70px;
+    display: flex;
+    border-radius: 15px;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+}
+.accountName{
+    width: 90%;
+    color: white;
+}
+.modifyButton{
+    width: 5%;
+    color: white;
+}
